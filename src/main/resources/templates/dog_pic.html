@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--here use th:text to render the value of the parameter ${dogPic.getMessage()} that was set in the controller.-->
+<p th:text="'Picture from: ' + ${dogPic.getMessage()} + '!'" />
+
+<img th:src="${dogPic.getMessage()}" alt="pic.png">
+</body>
+</html>

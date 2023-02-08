@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Sitter page</title>
+</head>
+<body>
+
+<p th:text = "'Thank you ' + ${user.name} + ',your profile updated!' " />
+<a th:href="@{/}">Back to home page</a>
+</body>
+</html>

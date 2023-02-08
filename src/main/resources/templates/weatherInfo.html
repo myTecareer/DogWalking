@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Today's weather for Human:</h1>
+<ol>
+    <li th:each="res:${response}">
+
+        <span th:text="${res.getMain()}"></span>
+        <span th:text="${res.getDescription()}"></span>
+
+        <img th:src="'weather/'+${res.getIcon()} + '.png' " alt="weather.png">
+
+        <h1>Today's weather for Dog:</h1>
+
+        <img th:src="'images/'+${res.getIcon()} + '.jpg' " alt="dog.jpg">
+
+    </li>
+</ol>
+</body>
+</html>

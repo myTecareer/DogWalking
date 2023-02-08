@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update User Info</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+
+  <hr>
+  <h2>Update Profile</h2>
+
+  <form action ="#" th:action="@{/saveUserProfile}" th:object="${user}" method="post">
+
+
+    <p th:text ="'User id:  '+${user.id}"/>
+    <!--            <p>Where is your location?</p>-->
+    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{name}" />
+    <input type="hidden" th:field="*{email}" />
+    <input type="hidden" th:field="*{password}" />
+    <input type="hidden" th:field="*{type}" />
+    <select th:field="*{district}" id="inputState" class="form-select">
+
+      <option value="none" selected disabled hidden>Select your location</option>
+      <option value="Dublin 01">Dublin 01</option>
+      <option value="Dublin 02">Dublin 02</option>
+      <option value="Dublin 03">Dublin 03</option>
+      <option value="Dublin 04">Dublin 04</option>
+      <option value="Dublin 05">Dublin 05</option>
+      <option value="Dublin 06">Dublin 06</option>
+      <option value="Dublin 06w">Dublin 06w</option>
+      <option value="Dublin 07">Dublin 07</option>
+      <option value="Dublin 08">Dublin 08</option>
+      <option value="Dublin 09">Dublin 09</option>
+      <option value="Dublin 10">Dublin 10</option>
+      <option value="Dublin 11">Dublin 11</option>
+      <option value="Dublin 12">Dublin 12</option>
+      <option value="Dublin 13">Dublin 13</option>
+      <option value="Dublin 14">Dublin 14</option>
+      <option value="Dublin 15">Dublin 15</option>
+      <option value="Dublin 16">Dublin 16</option>
+      <option value="Dublin 17">Dublin 17</option>
+      <option value="Dublin 18">Dublin 18</option>
+      <option value="Dublin 20">Dublin 20</option>
+      <option value="Dublin 22">Dublin 22</option>
+      <option value="Dublin 24">Dublin 24</option>
+
+
+    </select>
+    <!--            <input type="text" th:field="*{introduction}" class="form-control col-4 mb-4" placeholder="let people know more about you" />-->
+    <textarea rows="5" cols="25" th:field="*{introduction}" class="form-control col-4 mb-4" placeholder="let people know more about you" ></textarea>
+    <button type="submit" class="btn btn-primary  ">Submit</button>
+  </form>
+
+  <hr>
+
+
+  <a th:href="@{/}">Back to home page</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+.error {
+	color: red;
+}
+</style>
+  <title>Error page</title>
+</head>
+<body>
+<div>
+  <div>
+    <h2>Error page</h2>
+    <form action="#" th:action="@{/add}" th:object="${user}"
+          method="post" class="form">
+      <div>
+        <label for="name">name</label> <input type="text" th:field="*{name}" id="name" placeholder=" Name">
+        <ul>
+          <li th:each="err : ${#fields.errors('name')}" th:text="${err}"class="error" />
+        </ul>
+      </div>
+      <div>
+        <label for="email">Email</label> <input type="text"  th:field="*{email}" id="email"/>
+        <p th:if="${#fields.hasErrors('email')}"
+           th:class="${#fields.hasErrors('email')}? error"
+           th:errors="*{email}" />
+      </div>
+      <div>
+        <label for="age">Age</label> <input type="text" th:field="*{age}"
+                                            id="age">
+        <p th:if="${#fields.hasErrors('age')}"
+           th:class="${#fields.hasErrors('age')}? error">Invalid Age</p>
+      </div>
+
+    </form>
+    <h3>This is outside the form:</h3>
+    <h4>Errors on a single field:</h4>
+
+    <h4>All errors:</h4>
+    <ul>
+      <li th:each="err : ${#fields.errors('user.*')}" th:text="${err}" />
+    </ul>
+  </div>
+</div>
+</body>
+</html>
